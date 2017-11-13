@@ -6,6 +6,9 @@
 		Right,
 		Backward,
 		Left,
-		Stop
+		Stop,
+		ToggleLeds,
+		TakePicture,
+		GetDistance
 	}
 }
