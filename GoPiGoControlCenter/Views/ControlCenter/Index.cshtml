@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "GoPiGo Control Center";
+}
+
+<div class="row">
+	<div class="col-md-12">
+		<h2>Control Center</h2>
+		<p>
+			Use the buttons to control the GoPiGo car.
+		</p>
+		<p>
+			<a class="btn btn-default" id="btnForward">Vooruit</a>
+			<a class="btn btn-default" id="btnRight">Rechtsaf</a>
+			<a class="btn btn-default" id="btnBackward">Achteruit</a>
+			<a class="btn btn-default" id="btnLeft">Linksaf</a>
+			<a class="btn btn-default" id="btnStop">Stop</a>
+		</p>
+		<p id="status"></p>
+	</div>
+</div>
+
+@section scripts
+{
+	@Scripts.Render("~/bundles/gopigo")
+	<script src="~/signalr/hubs"></script>
+}
