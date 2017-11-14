@@ -30,7 +30,11 @@ function startHub(timeout) {
 		if (navigator.onLine) {
 			$.connection.hub.start()
 				.done(function () {
-					goPiGoHub.log("Connected!");
+					goPiGoHub.log("Connected to server!");
+					if (!isWatcher) {
+						goPiGoHub.server.getCarConnectionStatus()
+							.done(setCarConnected);
+					}
 				});
 		} else {
 			startHub(5000); // Retry connection after 5 seconds.
@@ -38,12 +42,20 @@ function startHub(timeout) {
 	}, timeout);
 }
 
+function setCarConnected(isConnected) {
+	if (isConnected) {
+		$("#carStatus").text("GoPiGo Car Connected!");
+	} else {
+		$("#carStatus").text("Waiting for car to connect...");
+	}
+}
+
 function initControlCenter() {
 	goPiGoHub.log = function (message) {
 		$("#status").text(message);
 	};
-	goPiGoHub.client.sendCarConnected = function () {
-		$("#carStatus").text("GoPiGo Car Connected!");
+	goPiGoHub.client.sendCarConnected = function (data) {
+		setCarConnected(data);
 	};
 
 	goPiGoHub.client.showPicture = function(uri) {
