@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "GoPiGo Control Center";
+	ViewBag.Title = "GoPiGo Control Center";
 }
 
 <div class="row">
@@ -8,14 +8,46 @@
 		<p>
 			Use the buttons to control the GoPiGo car.
 		</p>
+	</div>
+</div>
+<div width="200">
+<div class="row">
+	<div class="col-xs-4 col-xs-offset-4 text-center">
 		<p>
-			<a class="btn btn-default" id="btnForward">Forward</a>
-			<a class="btn btn-default" id="btnRight">Right</a>
-			<a class="btn btn-default" id="btnBackward">Backward</a>
-			<a class="btn btn-default" id="btnLeft">Left</a>
-			<a class="btn btn-default" id="btnStop">Stop</a>
-			<a class="btn btn-default" id="btnToggleLeds">Toggle LED's</a>
-			<a class="btn btn-default" id="btnTakePicture">Take picture</a>
+			<a class="btn btn-success" id="btnForward">Forward</a>
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-4 text-center">
+		<p>
+			<a class="btn btn-success" id="btnLeft">Left</a>
+		</p>
+	</div>
+	<div class="col-xs-4 text-center">
+		<p>
+			<a class="btn btn-danger" id="btnStop">Stop</a>
+		</p>
+	</div>
+	<div class="col-xs-4 text-center">
+		<p>
+			<a class="btn btn-success" id="btnRight">Right</a>
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-4 col-xs-offset-4 text-center">
+		<p>
+			<a class="btn btn-success" id="btnBackward">Backward</a>
+		</p>
+	</div>
+</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<p>
+			<a class="btn btn-info" id="btnToggleLeds">Toggle LED's</a>
+			<a class="btn btn-info" id="btnTakePicture">Take picture</a>
 		</p>
 		<p id="status"></p>
 	</div>

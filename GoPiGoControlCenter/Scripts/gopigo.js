@@ -38,7 +38,7 @@ $(document).ready(function() {
 	}
 
 	$.connection.hub.disconnected(function() {
-		goPiGoHub.log("Disconnected!");
+		goPiGoHub.log("Disconnected! Reconnecting automatically...");
 		startHub(2000);
 	});
 
