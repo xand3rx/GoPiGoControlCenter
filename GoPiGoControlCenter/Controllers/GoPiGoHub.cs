@@ -18,5 +18,29 @@ namespace GoPiGoControlCenter.Controllers
 				//TODO: handle and/or log e
 			}
 		}
+
+		public void RegisterCar()
+		{
+			try
+			{
+				context.Clients.All.sendCarConnected();
+			}
+			catch (Exception e)
+			{
+				//TODO: handle and/or log e
+			}
+		}
+
+		public static void SendPictureUri(string uri)
+		{
+			try
+			{
+				context.Clients.All.showPicture(uri);
+			}
+			catch (Exception e)
+			{
+				//TODO: handle and/or log e
+			}
+		}
 	}
 }

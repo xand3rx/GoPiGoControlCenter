@@ -24,8 +24,8 @@ namespace GoPiGoControlCenter
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 								"~/Content/bootstrap.css",
-								"~/Content/bootstrap-darkly.min.css"
-								//"~/Content/site.css"
+								"~/Content/bootstrap-darkly.min.css",
+								"~/Content/site.css"
 								));
 
 			bundles.Add(new ScriptBundle("~/bundles/gopigo").Include(

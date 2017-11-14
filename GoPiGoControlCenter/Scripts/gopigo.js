@@ -11,30 +11,7 @@ $(document).ready(function() {
 			$("#watcherCommands").append(message + "<br />");
 		};
 	} else {
-		goPiGoHub.log = function(message) {
-			$("#status").text(message);
-		};
-		$("#btnForward").click(function() {
-			goPiGoHub.server.sendCommand("Forward");
-		});
-		$("#btnRight").click(function() {
-			goPiGoHub.server.sendCommand("Right");
-		});
-		$("#btnBackward").click(function() {
-			goPiGoHub.server.sendCommand("Backward");
-		});
-		$("#btnLeft").click(function() {
-			goPiGoHub.server.sendCommand("Left");
-		});
-		$("#btnStop").click(function() {
-			goPiGoHub.server.sendCommand("Stop");
-		});
-		$("#btnToggleLeds").click(function () {
-			goPiGoHub.server.sendCommand("ToggleLeds");
-		});
-		$("#btnTakePicture").click(function () {
-			goPiGoHub.server.sendCommand("TakePicture");
-		});
+		initControlCenter();
 	}
 
 	$.connection.hub.disconnected(function() {
@@ -59,4 +36,40 @@ function startHub(timeout) {
 			startHub(5000); // Retry connection after 5 seconds.
 		}
 	}, timeout);
+}
+
+function initControlCenter() {
+	goPiGoHub.log = function (message) {
+		$("#status").text(message);
+	};
+	goPiGoHub.client.sendCarConnected = function () {
+		$("#carStatus").text("GoPiGo Car Connected!");
+	};
+
+	goPiGoHub.client.showPicture = function(uri) {
+		$("#picture").attr("src", uri);
+	}
+
+
+	$("#btnForward").click(function () {
+		goPiGoHub.server.sendCommand("Forward");
+	});
+	$("#btnRight").click(function () {
+		goPiGoHub.server.sendCommand("Right");
+	});
+	$("#btnBackward").click(function () {
+		goPiGoHub.server.sendCommand("Backward");
+	});
+	$("#btnLeft").click(function () {
+		goPiGoHub.server.sendCommand("Left");
+	});
+	$("#btnStop").click(function () {
+		goPiGoHub.server.sendCommand("Stop");
+	});
+	$("#btnToggleLeds").click(function () {
+		goPiGoHub.server.sendCommand("ToggleLeds");
+	});
+	$("#btnTakePicture").click(function () {
+		goPiGoHub.server.sendCommand("TakePicture");
+	});
 }
